@@ -146,9 +146,9 @@ class TaiwanMahjongEvaluator:
 
         if first_idx < 27 and (first_idx % 9 <= 6):
             if counts[first_idx + 1] > 0 and counts[first_idx + 2] > 0:
-                counts[first_idx] -= 1
                 counts[first_idx + 1] -= 1
                 counts[first_idx + 2] -= 1
+                counts[first_idx] -= 1
                 if cls._check_melds(counts, needed_melds - 1):
                     counts[first_idx] += 1
                     counts[first_idx + 1] += 1
@@ -379,6 +379,7 @@ class CMLMahjongTable:
         winner_id = None
         loser_id = None
 
+        # 鐵八流局邊界控制：當摸牌與補花後殘餘牌牆達 16 張時觸發流局跳出
         while len(self.wall) > 16:
             if is_dealer_first_turn:
                 is_dealer_first_turn = False
@@ -615,6 +616,7 @@ def run_regression_and_ev_pipeline(csv_filename="mahjong_all_players.csv"):
 
     print("\n================ 起手向聽數 vs. 牌局期望值 (EV) 與邊際遞減總表 ================")
     print(ev_summary.to_string(index=False, float_format=lambda x: f"{x:.3f}"))
+    print("註：視覺化曲線採用 Samples >= 10 之顯著分群（自動濾除 N < 10 之極端離群值如 0 向聽與 8 向聽）。")
     print(f"---> 線性內插之全速進攻損益兩平臨界點 (Break-Even Shanten, EV = 0): {breakeven_shanten:.3f} 向聽")
     print("===============================================================================\n")
 
