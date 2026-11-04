@@ -2,7 +2,8 @@
 *A Monte Carlo Simulation, Tenpai Turn Regression, and Expected Value Evaluation Framework for 16-Tile Taiwan Mahjong*
 
 <!-- 請將最新 2x2 四合一圖表拖曳至此處，替換下方 img 標籤 -->
-<img width="4800" height="3300" alt="mahjong_regression_analysis" src="https://github.com/user-attachments/assets/42cfc9bb-9546-46ec-910d-938c0e9a252d" />
+<img width="4800" height="3300" alt="mahjong_regression_analysis" src="https://github.com/user-attachments/assets/a263d499-793a-4e87-a811-e93de1d95772" />
+
 
 ## 1. 系統概述與研究目的 (Executive Summary)
 本專案建構一套結合**組合搜尋演算法**、**計量經濟迴歸模型**與**零和賽局損益結算**的模擬分析系統。針對台灣十六張麻將缺乏公開結構化數據之現況，系統於固定隨機種子（`Seed = 42`）之可重複實驗環境下，以單核每秒 457 局之運算速度生成 5,000 局（共 20,000 筆玩家觀測樣本）對局資料，量化評估以下三項問題：
